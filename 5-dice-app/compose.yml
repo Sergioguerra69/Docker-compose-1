@@ -1,0 +1,10 @@
+services:
+  dice-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DICE_SIDES=`${DICE_SIDES:-6}
+    volumes:
+      - ./templates:/app/templates:ro
+    restart: unless-stopped
